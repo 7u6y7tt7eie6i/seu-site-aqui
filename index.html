@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seu Site Aqui | Criação de sites para empresas e comércios</title>
+  <meta name="description" content="Criação de sites profissionais para empresas, comércios e profissionais autônomos. Mais visibilidade, mais clientes e mais credibilidade para o seu negócio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═════════ HEADER ═════════ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#topo" class="logo">SEU SITE <span>AQUI.</span></a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <a href="#topo">Início</a>
+        <a href="#vantagens">Vantagens</a>
+        <a href="#sobre">Sobre mim</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="btn nav__cta">Quero meu site</a>
+      </nav>
+
+      <a href="#contato" class="btn btn--sm header__cta">Quero meu site</a>
+
+      <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="progresso" id="progresso" aria-hidden="true"></div>
+  </header>
+
+  <!-- Laterais decorativas (só em telas largas) -->
+  <nav class="trilho trilho--esq" aria-label="Seções da página">
+    <div class="trilho__linha"><span class="trilho__fill" id="trilhoFill"></span></div>
+    <a href="#topo" data-sec="topo"><i></i><span>01 · Início</span></a>
+    <a href="#vantagens" data-sec="vantagens"><i></i><span>02 · Vantagens</span></a>
+    <a href="#sobre" data-sec="sobre"><i></i><span>03 · Sobre mim</span></a>
+    <a href="#duvidas" data-sec="duvidas"><i></i><span>04 · Dúvidas</span></a>
+    <a href="#contato" data-sec="contato"><i></i><span>05 · Contato</span></a>
+  </nav>
+  <div class="trilho trilho--dir" aria-hidden="true">
+    <span class="trilho__risco"></span>
+    <p>Seu Site Aqui <b>·</b> Criação de sites <b>·</b> Paraná</p>
+    <span class="trilho__risco"></span>
+    <p class="trilho__ano" id="anoLateral"></p>
+  </div>
+
+  <main>
+
+    <!-- ═════════ HERO ═════════ -->
+    <section class="hero" id="topo">
+      <div class="hero__lines" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__text animar">
+          <p class="eyebrow fx-stagger"><span style="--i:0">Criação de sites para empresas e comércios</span></p>
+
+          <h1 class="hero__title">
+            <span class="fx-curtain"><span>SEU SITE</span></span><br>
+            <span class="fx-curtain fx-curtain--late"><span class="laranja">AQUI.</span></span>
+          </h1>
+
+          <div class="fx-stagger">
+            <p class="hero__sub" style="--i:4">Sites profissionais que colocam o seu negócio no Google, passam confiança e trazem mais clientes para você.</p>
+            <div class="hero__actions" style="--i:5">
+              <a href="#contato" class="btn">Quero meu site</a>
+              <a href="#vantagens" class="link-seta">Por que ter um site <span aria-hidden="true">→</span></a>
+            </div>
+            <p class="status" style="--i:6"><i aria-hidden="true"></i>Agenda aberta para novos projetos</p>
+          </div>
+        </div>
+
+        <!-- Mockup desktop + celular feitos em CSS -->
+        <div class="hero__visual" aria-hidden="true">
+          <div class="mock-desktop cantos">
+            <div class="mock-bar"><i></i><i></i><i></i><span>www.seunegocio.com.br</span></div>
+            <div class="mock-screen">
+              <div class="mk-nav"><b></b><em></em><em></em><em></em><u></u></div>
+              <div class="mk-hero">
+                <div>
+                  <div class="mk-h"></div>
+                  <div class="mk-h mk-h--o"></div>
+                  <div class="mk-p"></div><div class="mk-p mk-p--s"></div>
+                  <div class="mk-btn"></div>
+                </div>
+                <div class="mk-img"></div>
+              </div>
+              <div class="mk-cards"><div></div><div></div><div></div></div>
+            </div>
+          </div>
+          <div class="mock-phone">
+            <div class="mk-notch"></div>
+            <div class="mk-h"></div>
+            <div class="mk-h mk-h--o"></div>
+            <div class="mk-p"></div><div class="mk-p mk-p--s"></div>
+            <div class="mk-img mk-img--phone"></div>
+            <div class="mk-btn mk-btn--full"></div>
+          </div>
+          <div class="hero__ring"></div>
+          <div class="hero__dots"></div>
+
+          <!-- cursor clicando no botão do site -->
+          <svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z"/></svg>
+
+          <!-- cartões flutuantes -->
+          <div class="flt flt--visitas">
+            <small class="flt__rot" id="fltRot">Vendas</small>
+            <svg viewBox="0 0 120 40" preserveAspectRatio="none"><path class="area" d="M0 36 L15 32 L30 34 L45 26 L60 28 L75 18 L90 20 L105 9 L120 4 L120 40 L0 40Z"/><path class="linha" d="M0 36 L15 32 L30 34 L45 26 L60 28 L75 18 L90 20 L105 9 L120 4"/></svg>
+            <span class="flt__seta">▲ subindo</span>
+          </div>
+          <!-- risco laranja tracejado ligando o celular ao círculo -->
+          <svg class="hero__conexao" viewBox="0 0 400 200" preserveAspectRatio="none">
+            <path d="M10 150 C 120 210, 250 200, 390 60" />
+            <circle cx="10" cy="150" r="4" />
+            <circle cx="390" cy="60" r="4" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ VANTAGENS ═════════ -->
+    <section class="secao" id="vantagens">
+      <div class="container">
+        <div class="secao__head animar">
+          <p class="eyebrow">O que um site faz por você</p>
+          <h2 class="titulo"><span class="fx-curtain"><span>QUEM NÃO É VISTO,</span></span><br><span class="fx-curtain fx-curtain--late"><span>NÃO É <em class="laranja">LEMBRADO.</em></span></span></h2>
+        </div>
+
+        <div class="vantagens animar fx-stagger">
+          <article class="card" style="--i:0">
+            <span class="card__num">01</span>
+            <svg class="card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3>Visibilidade</h3>
+            <p>Seus clientes já estão procurando no Google. Com um site, eles encontram você em vez do concorrente, a qualquer hora do dia.</p>
+          </article>
+          <article class="card" style="--i:1">
+            <span class="card__num">02</span>
+            <svg class="card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <h3>Mais clientes</h3>
+            <p>Cada pessoa que visita o seu site é um cliente em potencial. Quanto mais gente conhece o seu negócio, mais clientes chegam até você.</p>
+          </article>
+          <article class="card" style="--i:2">
+            <span class="card__num">03</span>
+            <svg class="card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <h3>Profissionalismo</h3>
+            <p>Um site bem feito mostra que a sua empresa é séria. Passa credibilidade e faz o cliente escolher você com segurança.</p>
+          </article>
+          <article class="card" style="--i:3">
+            <span class="card__num">04</span>
+            <svg class="card__ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg>
+            <h3>Mais conversões</h3>
+            <p>Seu site transforma visitantes em clientes e clientes em vendas. Mais conversões, mais faturamento e uma empresa que cresce.</p>
+          </article>
+        </div>
+
+        <div class="numeros animar">
+          <div class="numeros__lista">
+            <div class="numero">
+              <div class="fx-count" data-alvo="87" data-casas="0" data-sufixo="%">0</div>
+              <h3>Visibilidade</h3>
+              <p>Aumenta a visibilidade do seu comércio ou empresa: é a parcela de pessoas que usa o Google para encontrar negócios locais.</p>
+            </div>
+            <div class="numero">
+              <div class="fx-count" data-alvo="84" data-casas="0" data-sufixo="%">0</div>
+              <h3>Confiança</h3>
+              <p>Gera mais confiança em clientes, compradores e interessados, que confiam mais em quem tem site do que só rede social.</p>
+            </div>
+            <div class="numero">
+              <div class="fx-count" data-alvo="92" data-casas="0" data-sufixo="%">0</div>
+              <h3>Preferência</h3>
+              <p>Atende o que o cliente quer: a maioria prefere buscar informações direto no site da empresa.</p>
+            </div>
+          </div>
+
+          <div class="grafico cantos">
+            <div class="grafico__topo">
+              <span>Por que ter um site</span>
+              <span class="tag">dados reais</span>
+            </div>
+            <!-- Barras geradas pelo script.js (lista "dados" em montarBarras) -->
+            <div class="js-barras"></div>
+            <p class="grafico__legenda">
+              Fontes: <a href="https://www.brightlocal.com/research/local-consumer-review-survey-2023/" target="_blank" rel="noopener">BrightLocal, 2023</a> ·
+              <a href="https://blog.verisign.com/getting-online/verisign-2015-online-survey-97-percent-of-smbs-would-recommend-having-a-website-to-other-smbs/" target="_blank" rel="noopener">Verisign, 2015</a> ·
+              <a href="https://sebrae.com.br/Sebrae/Portal%20Sebrae/Arquivos/E-book_Presen%C3%A7a_digital_para_quem_%C3%A9_MEI.pdf" target="_blank" rel="noopener">TNS, via Sebrae</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ SOBRE MIM ═════════ -->
+    <section class="secao secao--alt" id="sobre">
+      <div class="container sobre">
+        <div class="sobre__foto animar">
+          <div class="foto-moldura"><img src="img/gustavo.jpg" alt="Foto de Gustavo, criador de sites" width="1200" height="1500" loading="lazy"></div>
+          <div class="sobre__selo">G.</div>
+        </div>
+
+        <div class="sobre__texto animar">
+          <p class="eyebrow">Sobre mim</p>
+          <h2 class="titulo"><span class="fx-curtain"><span>PRAZER, <em class="laranja">GUSTAVO.</em></span></span></h2>
+          <p class="js-split">Eu crio sites para empresas e comércios que querem ser encontrados, lembrados e escolhidos.</p>
+          <p class="sobre__p">Você fala direto comigo, da primeira conversa até o site publicado. Sem termos complicados e sem enrolação: você me conta como funciona o seu negócio e eu transformo isso em um site moderno, rápido e que trabalha por você.</p>
+          <div class="diferencial">
+            <span class="diferencial__tag">Meu diferencial</span>
+            <p><strong>O melhor custo-benefício, com preços acessíveis.</strong> Qualidade de agência com valor que cabe no bolso de pequenos negócios. E tudo com contrato, para a sua segurança.</p>
+          </div>
+          <div class="sobre__redes">
+            <div class="rede">
+              <small>Instagram profissional</small>
+              <a href="https://instagram.com/gustavodigital__" target="_blank" rel="noopener" class="link-seta">@gustavodigital__ <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="rede">
+              <small>Instagram pessoal</small>
+              <a href="https://instagram.com/gustavo_hrgomes" target="_blank" rel="noopener" class="link-seta link-seta--dim">@gustavo_hrgomes <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ DÚVIDAS ═════════ -->
+    <section class="secao" id="duvidas">
+      <div class="container duvidas">
+        <div class="animar">
+          <p class="eyebrow">Dúvidas</p>
+          <h2 class="titulo"><span class="fx-curtain"><span>PERGUNTAS</span></span><br><span class="fx-curtain fx-curtain--late"><span class="laranja">FREQUENTES.</span></span></h2>
+        </div>
+
+        <div class="faq animar fx-stagger">
+          <details style="--i:0">
+            <summary>Quanto custa um site?</summary>
+            <p>Bem menos do que você imagina, porque preço baixo é o meu diferencial. O valor depende do que o seu negócio precisa. Me chame no WhatsApp e eu passo um orçamento sem compromisso.</p>
+          </details>
+          <details style="--i:1">
+            <summary>Tem contrato?</summary>
+            <p>Sim. Todo site é feito com contrato, explicando tudo o que está incluso, prazos, valores, responsabilidades e as cláusulas de cada parte. Você sabe exatamente o que está contratando, sem surpresas.</p>
+          </details>
+          <details style="--i:2">
+            <summary>Preciso entender de tecnologia?</summary>
+            <p>Não. Eu cuido de toda a parte técnica. Você só me passa as informações do seu negócio: textos, fotos e contatos.</p>
+          </details>
+          <details style="--i:3">
+            <summary>O site funciona no celular?</summary>
+            <p>Sim. Todo site é feito para funcionar bem no celular, no tablet e no computador.</p>
+          </details>
+          <details style="--i:4">
+            <summary>Dá para mudar algo depois que o site estiver no ar?</summary>
+            <p>Dá sim. Horários, fotos, preços e textos podem ser atualizados sempre que precisar.</p>
+          </details>
+          <details style="--i:5">
+            <summary>E se um dia eu não quiser mais o site?</summary>
+            <p>Sem problema. O site é retirado do ar quando você pedir, sem burocracia.</p>
+          </details>
+          <details style="--i:6">
+            <summary>Posso marcar uma reunião antes de fechar?</summary>
+            <p>Pode sim. Marcamos uma reunião para conversar sobre o desenvolvimento do seu site, entender o que você precisa e tirar todas as suas dúvidas, sem compromisso.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═════════ CTA FINAL / CONTATO / LOCALIZAÇÃO ═════════ -->
+    <section class="cta" id="contato">
+      <div class="hero__lines" aria-hidden="true"></div>
+      <div class="container cta__inner animar">
+        <p class="eyebrow">Contato</p>
+        <h2 class="cta__titulo">
+          <span class="fx-curtain"><span>O SEU NEGÓCIO</span></span><br>
+          <span class="fx-curtain fx-curtain--late"><span>PODE ESTAR <em class="laranja">AQUI.</em></span></span>
+        </h2>
+        <a class="btn btn--lg" href="https://wa.me/5545998413407?text=Ol%C3%A1!%20Quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <div class="reuniao">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <p>Prefere conversar antes? <strong>Marque uma reunião</strong> para falarmos sobre o desenvolvimento do seu site e tirar todas as suas dúvidas.</p>
+          <a href="https://wa.me/5545998413407?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20para%20conversar%20sobre%20um%20site." target="_blank" rel="noopener" class="link-seta">Agendar reunião <span aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="contatos">
+          <li><span>WhatsApp</span><a href="https://wa.me/5545998413407" target="_blank" rel="noopener">(45) 99841-3407</a></li>
+          <li><span>Instagram</span><a href="https://instagram.com/gustavo_hrgomes" target="_blank" rel="noopener"><em class="contatos__rot">Pessoal:</em> @gustavo_hrgomes</a><a href="https://instagram.com/gustavodigital__" target="_blank" rel="noopener"><em class="contatos__rot">Profissional:</em> @gustavodigital__</a></li>
+          <li><span>Localização</span>Paraná · Atendo online em todo o Brasil</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <a href="#topo" class="logo">SEU SITE <span>AQUI.</span></a>
+      <p>© <span id="ano"></span> Seu Site Aqui · Criação de sites · Gustavo Henrique Rissatto Gomes</p>
+      <a href="#topo" class="link-seta">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante do WhatsApp -->
+  <a class="zap" href="https://wa.me/5545998413407?text=Ol%C3%A1!%20Quero%20um%20site%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44a9.38 9.38 0 0 1 6.68 2.77 9.38 9.38 0 0 1 2.76 6.68c0 5.21-4.24 9.44-9.45 9.44zm8.04-17.48A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.06c0 2 .52 3.96 1.52 5.68L.58 23.7l6.1-1.6a11.33 11.33 0 0 0 5.37 1.37h.01c6.26 0 11.36-5.1 11.36-11.37 0-3.03-1.18-5.89-3.33-8.03z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
