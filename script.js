@@ -46,6 +46,7 @@
     header.classList.toggle('rolou', y > 10);
     progresso.style.transform = 'scaleX(' + pct + ')';
     document.body.classList.toggle('mostra-zap', y > 500);
+    document.body.classList.toggle('rolou-inicio', y > 60);
 
     /* celular: menu some ao descer e volta ao subir */
     if (mqMobile.matches && !nav.classList.contains('aberto')) {
