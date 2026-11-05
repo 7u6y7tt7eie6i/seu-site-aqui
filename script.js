@@ -7,43 +7,73 @@
   /* ── Ano no rodapé ── */
   document.getElementById('ano').textContent = new Date().getFullYear();
 
-  /* ── Header: borda ao rolar ── */
+  /* ── Elementos ── */
   var header = document.querySelector('.header');
   var progresso = document.getElementById('progresso');
   var trilhoFill = document.getElementById('trilhoFill');
   var anoLat = document.getElementById('anoLateral');
   if (anoLat) anoLat.textContent = new Date().getFullYear();
-
-  /* Lateral esquerda: marca a seção atual e as que já passaram */
-  var pontos = document.querySelectorAll('.trilho--esq a');
-  var alvos = Array.prototype.map.call(pontos, function (a) { return document.getElementById(a.dataset.sec); });
-  function marcaTrilho() {
-    var meio = window.innerHeight * 0.45, atual = 0;
-    alvos.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= meio) atual = i; });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atual = alvos.length - 1;
-    pontos.forEach(function (p, i) {
-      p.classList.toggle('ativo', i === atual);
-      p.classList.toggle('passou', i < atual);
-    });
-  }
-  window.addEventListener('scroll', marcaTrilho, { passive: true });
-  marcaTrilho();
-  function checaScroll() {
-    header.classList.toggle('rolou', window.scrollY > 10);
-    /* barra de progresso de leitura */
-    var total = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = total > 0 ? window.scrollY / total : 0;
-    progresso.style.transform = 'scaleX(' + pct + ')';
-    if (trilhoFill) trilhoFill.style.height = (pct * 100) + '%';
-    /* botão do WhatsApp aparece depois do topo */
-    document.body.classList.toggle('mostra-zap', window.scrollY > 500);
-  }
-  window.addEventListener('scroll', checaScroll, { passive: true });
-  checaScroll();
-
-  /* ── Menu mobile ── */
   var burger = document.getElementById('burger');
   var nav = document.getElementById('nav');
+
+  /* Lateral esquerda (só telas largas) */
+  var pontos = document.querySelectorAll('.trilho--esq a');
+  var alvos = Array.prototype.map.call(pontos, function (a) { return document.getElementById(a.dataset.sec); });
+  var mqLateral = window.matchMedia('(min-width:1560px)');
+  var mqMobile = window.matchMedia('(max-width:860px)');
+
+  /* Links do menu */
+  var links = nav.querySelectorAll('a:not(.nav__cta)');
+  var secoes = Array.prototype.map.call(links, function (a) { return document.querySelector(a.getAttribute('href')); });
+
+  function secaoAtual(lista) {
+    var meio = window.innerHeight * 0.45, atual = 0;
+    for (var i = 0; i < lista.length; i++) {
+      if (lista[i] && lista[i].getBoundingClientRect().top <= meio) atual = i;
+    }
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atual = lista.length - 1;
+    return atual;
+  }
+
+  /* ── Um único handler de rolagem, no máximo 1x por quadro ── */
+  var ultimoY = window.scrollY, agendado = false;
+  function aoRolar() {
+    agendado = false;
+    var y = window.scrollY;
+    var total = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = total > 0 ? y / total : 0;
+
+    header.classList.toggle('rolou', y > 10);
+    progresso.style.transform = 'scaleX(' + pct + ')';
+    document.body.classList.toggle('mostra-zap', y > 500);
+
+    /* celular: menu some ao descer e volta ao subir */
+    if (mqMobile.matches && !nav.classList.contains('aberto')) {
+      if (y > ultimoY + 6 && y > 140) header.classList.add('escondido');
+      else if (y < ultimoY - 6 || y <= 140) header.classList.remove('escondido');
+    } else {
+      header.classList.remove('escondido');
+    }
+    ultimoY = y;
+
+    var a = secaoAtual(secoes);
+    links.forEach(function (l, i) { l.classList.toggle('ativo', i === a); });
+
+    if (mqLateral.matches) {
+      if (trilhoFill) trilhoFill.style.height = (pct * 100) + '%';
+      var t = secaoAtual(alvos);
+      pontos.forEach(function (p, i) {
+        p.classList.toggle('ativo', i === t);
+        p.classList.toggle('passou', i < t);
+      });
+    }
+  }
+  function pedeQuadro() { if (!agendado) { agendado = true; requestAnimationFrame(aoRolar); } }
+  window.addEventListener('scroll', pedeQuadro, { passive: true });
+  window.addEventListener('resize', pedeQuadro);
+  aoRolar();
+
+  /* ── Menu mobile ── */
   function fechaMenu() {
     nav.classList.remove('aberto');
     document.body.classList.remove('menu-aberto');
@@ -54,23 +84,20 @@
     var abrir = !nav.classList.contains('aberto');
     nav.classList.toggle('aberto', abrir);
     document.body.classList.toggle('menu-aberto', abrir);
+    header.classList.remove('escondido');
     burger.setAttribute('aria-expanded', String(abrir));
     burger.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
   });
   nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', fechaMenu); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechaMenu(); });
 
-  /* ── Link ativo no menu conforme a seção ── */
-  var links = nav.querySelectorAll('a:not(.nav__cta)');
-  var secoes = Array.prototype.map.call(links, function (a) { return document.querySelector(a.getAttribute('href')); });
-  function marcaMenu() {
-    var meio = window.innerHeight * 0.45, atual = 0;
-    secoes.forEach(function (s, i) { if (s && s.getBoundingClientRect().top <= meio) atual = i; });
-    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) atual = secoes.length - 1;
-    links.forEach(function (a, i) { a.classList.toggle('ativo', i === atual); });
+  /* ── Pausa as animações do topo quando ele sai da tela (economiza bateria/CPU) ── */
+  var hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (itens) {
+      hero.classList.toggle('pausado', !itens[0].isIntersecting);
+    }).observe(hero);
   }
-  window.addEventListener('scroll', marcaMenu, { passive: true });
-  marcaMenu();
 
   /* ── Mini gráfico do topo: troca o título junto com o redesenho (4s) ── */
   var rot = document.getElementById('fltRot');
