@@ -195,6 +195,6 @@
       rodar(it.target);
       o.unobserve(it.target); /* acontece uma vez só */
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15, rootMargin: '0px 0px -18% 0px' }); /* só dispara quando já está bem dentro da tela */
   blocos.forEach(function (b) { obs.observe(b); });
 })();
