@@ -331,7 +331,7 @@ body::after{
 
 /* Aviso "role para baixo" no canto */
 .rolar{
-  position:fixed;left:30px;bottom:64px;z-index:55;display:flex;flex-direction:column;align-items:center;gap:8px;
+  position:fixed;left:30px;bottom:120px;z-index:55;display:flex;flex-direction:column;align-items:center;gap:8px;
   color:var(--cinza);text-decoration:none;transition:opacity .4s,transform .5s var(--ease);
   animation:rolarEntra .8s var(--ease) 1.2s both;
 }
@@ -345,7 +345,7 @@ body::after{
 @keyframes rolarLinha{0%{transform:translateY(-100%)}100%{transform:translateY(230%)}}
 @keyframes rolarSeta{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @media (max-width:600px){
-  .rolar{left:14px;bottom:44px;gap:6px}
+  .rolar{left:14px;bottom:84px;gap:6px}
   .rolar__txt{font-size:8px}
   .rolar__linha{height:26px}
 }
