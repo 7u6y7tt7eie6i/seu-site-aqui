@@ -610,3 +610,6 @@ body::after{transform:translateZ(0)}
   .hero__dots{display:none}
   .mock-desktop,.mock-phone{box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
 }
+
+/* topo: subtítulo laranja sem o traço antes */
+.hero .eyebrow::before{display:none}
