@@ -588,3 +588,25 @@ body::after{transform:translateZ(0)}
 @media (max-width:600px){
   .flt--visitas{display:flex;top:118px;right:0;width:140px}
 }
+
+/* ══════════════════════════════════════════
+   CARREGAMENTO RÁPIDO
+   ══════════════════════════════════════════ */
+/* fonte reserva com proporção parecida enquanto a Anton carrega */
+@font-face{font-family:'Anton Fallback';src:local('Impact'),local('Arial Narrow Bold'),local('Arial');size-adjust:92%}
+:root{--display:'Anton','Anton Fallback',Impact,sans-serif}
+.foto-moldura picture{display:block}
+
+/* entrada do topo mais rápida */
+.hero .fx-curtain::after{animation-duration:.7s!important}
+.hero .run .fx-curtain > span{animation-delay:.35s}
+.hero .run .fx-curtain--late::after{animation-delay:.1s}
+.hero .run .fx-curtain--late > span{animation-delay:.45s}
+.hero .fx-stagger > *{animation-duration:.5s!important;animation-delay:calc(var(--i,0)*50ms)!important}
+
+@media (max-width:860px){
+  /* no celular: menos animações infinitas ao mesmo tempo */
+  .mock-desktop,.mock-phone,.hero__ring,.flt{animation:none!important}
+  .hero__dots{display:none}
+  .mock-desktop,.mock-phone{box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}
+}
