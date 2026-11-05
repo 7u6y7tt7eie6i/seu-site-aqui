@@ -613,3 +613,27 @@ body::after{transform:translateZ(0)}
 
 /* topo: subtítulo laranja sem o traço antes */
 .hero .eyebrow::before{display:none}
+
+/* rodapé: nome separado */
+.footer__nome::before{content:' · '}
+
+/* ══ Contato + rodapé organizados no celular ══ */
+@media (max-width:600px){
+  .contatos{
+    margin-top:48px;width:100%;gap:0;
+    border:1px solid var(--linha);border-radius:8px;background:rgba(23,23,23,.6);
+  }
+  .contatos li{padding:18px 16px;gap:6px;align-items:center;text-align:center}
+  .contatos li + li{border-top:1px solid var(--linha)}
+  .contatos li a{display:block}
+  .cta{padding-bottom:64px}
+
+  .footer{padding:36px 0 104px}
+  .footer__inner{flex-direction:column;align-items:center;text-align:center;gap:14px}
+  .footer p{line-height:1.7}
+  .footer__nome{display:block}
+  .footer__nome::before{content:''}
+}
+@media (max-width:600px){
+  .reuniao{align-items:center;text-align:center;width:100%}
+}
