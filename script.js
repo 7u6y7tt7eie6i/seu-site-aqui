@@ -60,7 +60,7 @@
     links.forEach(function (l, i) { l.classList.toggle('ativo', i === a); });
 
     if (mqLateral.matches) {
-      if (trilhoFill) trilhoFill.style.height = (pct * 100) + '%';
+      if (trilhoFill) trilhoFill.style.transform = 'scaleY(' + pct + ')';
       var t = secaoAtual(alvos);
       pontos.forEach(function (p, i) {
         p.classList.toggle('ativo', i === t);
@@ -162,11 +162,13 @@
     }).join('');
     area.querySelectorAll('.col').forEach(function (col, i) {
       var haste = col.querySelector('.haste'), val = col.querySelector('.val');
+      haste.style.height = dados[i].v + '%'; /* altura final fixa; a animação é só escala (GPU) */
       var alvo = dados[i].v;
-      if (reduzido) { haste.style.height = alvo + '%'; val.textContent = alvo + '%'; return; }
+      if (reduzido) { haste.style.transform = 'none'; val.textContent = alvo + '%'; return; }
       setTimeout(function () {
-        haste.style.transition = 'height 1.1s cubic-bezier(.16,1,.3,1)';
-        haste.style.height = alvo + '%';
+        void haste.offsetHeight; /* garante o estado inicial antes de animar */
+        haste.style.transition = 'transform 1.1s cubic-bezier(.16,1,.3,1)';
+        haste.style.transform = 'scaleY(1)';
         var ini = null;
         (function conta(t) {
           if (!ini) ini = t;
