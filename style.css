@@ -647,3 +647,8 @@ body::after{transform:translateZ(0)}
   .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
   .burger[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
 }
+
+/* Safari corta sombras grandes em elementos fixos: sombra menor no celular */
+@media (max-width:860px){
+  .zap{box-shadow:0 6px 16px -4px rgba(255,153,0,.45)}
+}
