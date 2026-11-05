@@ -331,23 +331,23 @@ body::after{
 
 /* Aviso "role para baixo" no canto */
 .rolar{
-  position:fixed;left:30px;bottom:28px;z-index:55;display:flex;flex-direction:column;align-items:center;gap:12px;
+  position:fixed;left:30px;bottom:64px;z-index:55;display:flex;flex-direction:column;align-items:center;gap:8px;
   color:var(--cinza);text-decoration:none;transition:opacity .4s,transform .5s var(--ease);
   animation:rolarEntra .8s var(--ease) 1.2s both;
 }
-.rolar__txt{writing-mode:vertical-rl;font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase}
-.rolar__linha{position:relative;width:1px;height:56px;background:var(--linha);overflow:hidden}
+.rolar__txt{writing-mode:vertical-rl;font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase}
+.rolar__linha{position:relative;width:1px;height:36px;background:var(--linha);overflow:hidden}
 .rolar__linha::after{content:'';position:absolute;left:0;top:0;width:100%;height:45%;background:var(--laranja);box-shadow:0 0 8px rgba(255,153,0,.6);animation:rolarLinha 1.8s var(--ease) infinite}
-.rolar__seta{width:18px;height:18px;fill:none;stroke:var(--laranja);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:rolarSeta 1.8s ease-in-out infinite}
+.rolar__seta{width:13px;height:13px;fill:none;stroke:var(--laranja);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:rolarSeta 1.8s ease-in-out infinite}
 .rolar:hover{color:var(--branco)}
 .rolou-inicio .rolar{opacity:0;transform:translateY(16px);pointer-events:none}
 @keyframes rolarEntra{from{opacity:0;transform:translateY(16px)}}
 @keyframes rolarLinha{0%{transform:translateY(-100%)}100%{transform:translateY(230%)}}
 @keyframes rolarSeta{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 @media (max-width:600px){
-  .rolar{left:16px;bottom:18px;gap:8px}
-  .rolar__txt{font-size:10px}
-  .rolar__linha{height:36px}
+  .rolar{left:14px;bottom:44px;gap:6px}
+  .rolar__txt{font-size:8px}
+  .rolar__linha{height:26px}
 }
 
 /* Cantoneiras laranjas */
