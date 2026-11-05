@@ -637,3 +637,12 @@ body::after{transform:translateZ(0)}
 @media (max-width:600px){
   .reuniao{align-items:center;text-align:center;width:100%}
 }
+
+/* menu (☰) com 3 linhas */
+@media (max-width:860px){
+  .burger{gap:5px}
+  .burger span{transition:transform .3s var(--ease),opacity .2s}
+  .burger[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+  .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .burger[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+}
